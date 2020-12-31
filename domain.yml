@@ -1,0 +1,213 @@
+version: "2.0"
+
+intents:
+- greet
+- goodbye
+- tell_name
+- affirm
+- thanks
+- deny
+- sell_car
+- location:
+      use_entities:
+        - region
+- brands:
+      use_entities:
+        - car_brand
+- carmodel:
+      use_entities:
+        - models
+- mode_request:
+      use_entities:
+        - request
+- year:
+      use_entities:
+        - date
+- distance:
+      use_entities:
+        - km
+- consumption:
+      use_entities:
+        - KILOMETRE      
+- cost:
+      use_entities:
+        - price
+- car_power:
+      use_entities:
+        - power
+- gearbox:
+      use_entities:
+        - mode_gear
+- energy:
+      use_entities:
+        - car_energy 
+- seller-type:
+      use_entities:
+        - type_of_sellar     
+- seller_name:
+      use_entities:
+        - sellar       
+- phone:
+      use_entities:
+        - phone_no
+- interior-color:
+      use_entities:
+        - color_name
+- exterieure-color:
+      use_entities:
+        - out_color    
+- sell_my_car:
+      use_entities:
+        - sell_car        
+  
+        
+entities:
+- KILOMETRE
+- date
+- region
+- car_brand
+- models
+- mode_gear
+- request
+- km
+- price
+- power
+- car_energy
+- type_of_sellar
+- sellar
+- phone_no
+- color_name
+- out_color
+- name
+- sell_car
+
+slots:
+  KILOMETRE:
+    type: text
+  date:
+    type: text
+  region:
+    type: text
+  car_brand:
+    type: text
+  models:
+    type: text
+  mode_gear:
+    type: text  
+  request:
+    type: text
+  km:
+    type: text    
+  price:
+    type: text
+  power:
+    type: text    
+  car_energy:
+    type: text
+  type_of_sellar:
+    type: text    
+  sellar:
+    type: text
+  phone_no:
+    type: text
+  color_name:
+    type: text
+  out_color:
+    type: text    
+  name:
+    type: text  
+
+
+responses:
+  utter_greet:
+  - text: hello Welcome to the car market of  caradis.fr, how can i help you ?
+  utter_ask_name:
+  - text: What is your name?    
+  utter_ask_number:
+  - text: What is your mobile number?
+  utter_ask_request:
+  - text: Are you interested in buying or selling cars?
+  utter_ask_brands:
+  - text: Which car brands do you need to buy?
+  utter_ask_models:
+  - text: Which model do you need?
+  utter_ask_distance:
+  - text: How about distance in KM?
+  utter_ask_year:
+  - text: what year of production is car in?
+  utter_ask_price:
+  - text: please, Determine car price?
+  utter_ask_power:
+  - text: what is the power of your car in KW?
+  utter_ask_seller-type:
+  - text: What is your favorite vendor?
+  utter_ask_thanks:
+  - text: you are very welcome :)
+  utter_ask_goodbye:
+  - text: goodbye
+  utter_goodbye:
+  - text: goodbyee
+  utter_out_of_scope:
+  - text: Sorry, I didnt get what you said. Please rephrase what you said.
+  utter_details_thanks:
+  - text: "Thanks for providing the given details \nName: {Name},\nMobile Number: {Mobile_number}"
+    
+
+actions:
+  - action_submit
+forms:
+  user_details_form:
+    KILOMETRE:
+      - type: from_entity
+        entity: KILOMETRE
+    date:
+      - type: from_entity
+        entity: date 
+    region:
+      - type: from_entity
+        entity: region
+    car_brand:
+      - type: from_entity
+        entity: car_brand        
+    models:
+      - type: from_entity
+        entity: models
+    mode_gear:
+      - type: from_entity
+        entity: mode_gear 
+    request:
+      - type: from_entity
+        entity: request
+    km:
+      - type: from_entity
+        entity: km         
+    price:
+      - type: from_entity
+        entity: price
+    power:
+      - type: from_entity
+        entity: power 
+    car_energy:
+      - type: from_entity
+        entity: car_energy
+    type_of_sellar:
+      - type: from_entity
+        entity: type_of_sellar        
+    phone_no:
+      - type: from_entity
+        entity: phone_no
+    color_name:
+      - type: from_entity
+        entity: color_name 
+    out_color:
+      - type: from_entity
+        entity: out_color
+    name:
+      - type: from_entity
+        entity: name           
+        
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
